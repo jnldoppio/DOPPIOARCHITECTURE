@@ -561,7 +561,8 @@ p  { margin: 0 0 1.1em; }
   text-align: center;
 }
 .maintenance-logo {
-  width: 6rem;
+  width: 18rem;
+  max-width: 70vw;
   margin: 0 auto 3rem;
   color: var(--blue);
 }
