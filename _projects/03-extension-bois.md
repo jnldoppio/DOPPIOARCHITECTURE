@@ -1,7 +1,7 @@
 ---
 layout: project
-title: Extension Bois
-location: Île-de-France
+title: Grange
+location: ""
 year: 2025
 summary: Extension contemporaine en ossature bois pour une maison familiale.
 cover: ""

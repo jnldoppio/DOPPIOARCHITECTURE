@@ -1,8 +1,8 @@
 ---
 layout: project
-title: Atelier Bureaux
-location: Lyon
-year: 2023
+title: Boat House
+location: ""
+year: 2025
 summary: Aménagement d'anciens locaux industriels en espaces de travail partagés.
 cover: ""
 gallery: []

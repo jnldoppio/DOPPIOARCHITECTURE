@@ -1,8 +1,8 @@
 ---
 layout: project
-title: Maison de Pierre
-location: Provence
-year: 2024
+title: Suburbia 2.0
+location: ""
+year: 2026
 summary: Rénovation d'une bastide du XVIIIe siècle, dans le respect de la pierre d'origine.
 cover: ""
 gallery: []
