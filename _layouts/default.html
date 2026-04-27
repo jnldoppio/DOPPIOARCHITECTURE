@@ -22,6 +22,14 @@
       <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="Doppio Architecture">
     </a>
 
+    <nav class="topbar-nav" aria-label="Navigation principale">
+      <ul>
+        {% for item in site.nav %}
+          <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} class="active"{% endif %}>{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
