@@ -51,10 +51,8 @@ exclude:
   - node_modules
   - _brand
 
-# Navigation principale
+# Navigation principale (le logo en haut à gauche sert de retour à l'accueil)
 nav:
-  - title: Accueil
-    url: /
   - title: À propos
     url: /a-propos/
   - title: Projets

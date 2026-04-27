@@ -71,7 +71,7 @@ p  { margin: 0 0 1.1em; }
   top: 0; left: 0; right: 0;
   z-index: 50;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   align-items: center;
   padding: var(--pad-y) var(--pad-x);
   pointer-events: none;
@@ -139,27 +139,34 @@ p  { margin: 0 0 1.1em; }
 .sidenav a:hover,
 .sidenav a.active { color: var(--blue); border-bottom-color: var(--blue); }
 
-/* Toggle mobile */
+/* Toggle mobile (carré avec lignes horizontales, à droite) */
 .nav-toggle {
   display: none;
   background: none;
   border: 1px solid var(--blue);
   color: var(--blue);
-  width: 2.4rem; height: 2.4rem;
+  width: 2.6rem; height: 2.6rem;
   cursor: pointer;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 4px;
   padding: 0;
   border-radius: 0;
+  justify-self: end;
+  transition: background .2s, color .2s;
 }
+.nav-toggle:hover { background: var(--blue); }
+.nav-toggle:hover span { background: var(--cream-light); }
 .nav-toggle span {
-  width: 14px; height: 1px;
+  width: 16px; height: 1.5px;
   background: var(--blue);
   display: block;
-  transition: transform .25s, opacity .2s;
+  transition: transform .25s, opacity .2s, background .2s;
 }
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
 
 /* === Main === */
 .site-main { padding-left: var(--sidenav-w); }
@@ -175,25 +182,22 @@ p  { margin: 0 0 1.1em; }
   height: 100vh;
 }
 .hero-image {
-  /* Placeholder visuel : remplace par url('/assets/images/hero.jpg') quand la vraie image est dispo.
-     Pour utiliser une vraie photo : ajoute la photo dans assets/images/hero.jpg
-     puis remplace tout le bloc background ci-dessous par :
-        background: url('/assets/images/hero.jpg') center/cover no-repeat;
+  /* Placeholder Unsplash (photo libre de droits, architecture).
+     Pour mettre votre vraie image :
+       1. Ajoutez votre photo dans assets/images/hero.jpg
+       2. Remplacez l'URL ci-dessous par :  url('/assets/images/hero.jpg')
+     Alternatives Unsplash (juste swapper l'URL) :
+       • Façade béton minimal :   https://images.unsplash.com/photo-1487958449943-2429e8be8625
+       • Maison moderne lumière : https://images.unsplash.com/photo-1545324418-cc1a3fa10c00
+       • Mur pierre / texture :   https://images.unsplash.com/photo-1503387762-592deb58ef4e
+       • Intérieur épuré :        https://images.unsplash.com/photo-1545558014-8692077e9b5c
+       • Détail patrimoine :      https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6
+     Suffixe à conserver : ?w=2400&q=80&auto=format&fit=crop
   */
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse at 30% 40%, rgba(180, 165, 140, 0.25) 0%, transparent 60%),
-    radial-gradient(ellipse at 70% 70%, rgba(140, 120, 90, 0.20) 0%, transparent 55%),
-    linear-gradient(135deg, #d8cfbb 0%, #c2b69d 50%, #a8997f 100%);
-}
-.hero-image::after {
-  /* Légère texture / grain */
-  content: "";
-  position: absolute; inset: 0;
-  background-image:
-    radial-gradient(circle at 20% 30%, transparent 30%, rgba(0,0,0,.05) 70%),
-    radial-gradient(circle at 80% 60%, transparent 40%, rgba(0,0,0,.04) 80%);
-  mix-blend-mode: multiply;
+    url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=2400&q=80&auto=format&fit=crop') center/cover no-repeat,
+    linear-gradient(135deg, #d8cfbb 0%, #a8997f 100%);
 }
 
 /* Sur la home, on masque le footer pour rester sur l'expérience plein écran */
@@ -479,7 +483,7 @@ p  { margin: 0 0 1.1em; }
 @media (max-width: 880px) {
   :root { --sidenav-w: 0px; }
 
-  .topbar { grid-template-columns: auto 1fr auto; padding: 1.1rem 1.25rem; }
+  .topbar { grid-template-columns: auto 1fr; padding: 1.1rem 1.25rem; }
   .topbar-logo { width: 4.5rem; }
   .topbar-meta { display: none; }
   .nav-toggle { display: inline-flex; }
