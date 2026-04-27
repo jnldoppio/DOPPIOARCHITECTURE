@@ -19,9 +19,10 @@
   --text: var(--ink);
   --accent: var(--blue);
 
-  /* Typo — Jost ≈ Futura (titres / display) | Mulish ≈ Brandon Grotesque (texte courant) */
-  --font-display: "Jost", "Futura", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: "Mulish", "Brandon Grotesque", -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Typo — Adobe Fonts : Futura PT (titres / display) | Brandon Grotesque (texte courant)
+     Fallback : Jost / Mulish (équivalents libres) puis polices système */
+  --font-display: "futura-pt", "Jost", "Futura", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: "brandon-grotesque", "Mulish", -apple-system, BlinkMacSystemFont, sans-serif;
   --font: var(--font-body);
 
   /* Espacement */
