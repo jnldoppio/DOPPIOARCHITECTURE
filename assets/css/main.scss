@@ -273,19 +273,19 @@ p  { margin: 0 0 1.1em; }
 .project-card:hover { transform: translateY(-3px); }
 .project-thumb {
   aspect-ratio: 4/3;
-  background:
-    linear-gradient(135deg, #c2b69d 0%, #a8997f 100%);
+  background: var(--blue);
   background-size: cover;
   background-position: center;
 }
+/* Variations subtiles de bleu pour donner du rythme à la grille */
 .project-card:nth-child(3n+1) .project-thumb {
-  background: linear-gradient(135deg, #d8cfbb 0%, #b8a98c 100%);
+  background: linear-gradient(135deg, var(--blue) 0%, #1e1ed8 100%);
 }
 .project-card:nth-child(3n+2) .project-thumb {
-  background: linear-gradient(135deg, #c5774e 0%, #9d5a37 100%);
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%);
 }
 .project-card:nth-child(3n) .project-thumb {
-  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%);
+  background: linear-gradient(160deg, #2a2af0 0%, var(--blue) 60%, var(--blue-deep) 100%);
 }
 .project-info {
   padding: 1.4rem 1.5rem 1.8rem;
@@ -322,7 +322,7 @@ p  { margin: 0 0 1.1em; }
 
 /* === Page hero (intérieures) === */
 .page-hero {
-  padding: 8rem var(--pad-x) 3.5rem;
+  padding: 11rem var(--pad-x) 3.5rem;
 }
 .page-hero .eyebrow { margin-bottom: 1.5rem; }
 .page-title {
@@ -428,6 +428,8 @@ p  { margin: 0 0 1.1em; }
   padding: 0 var(--pad-x) 6rem;
   max-width: 1000px;
 }
+/* Décale le bloc info pour qu'il s'aligne sur la première ligne du formulaire */
+.contact-info { padding-top: 1rem; }
 .contact-block + .contact-block { margin-top: 2.2rem; }
 .contact-label {
   display: block;
@@ -437,7 +439,7 @@ p  { margin: 0 0 1.1em; }
   color: var(--muted);
   margin-bottom: .4rem;
 }
-.contact-value { font-size: 1.05rem; }
+.contact-value { font-size: 1.05rem; color: var(--blue); }
 .contact-value a { color: var(--blue); border-bottom: 1px solid var(--blue); padding-bottom: 1px; }
 
 .contact-form label {
