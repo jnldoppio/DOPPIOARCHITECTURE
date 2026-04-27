@@ -1,10 +1,19 @@
 title: Doppio Architecture
 tagline: Studio d'architecture
 description: >-
-  Doppio Architecture — studio d'architecture. Conception, rénovation
-  et aménagement d'espaces résidentiels et tertiaires.
+  Doppio Architecture — studio d'architecture indépendant. Conception, rénovation
+  et aménagement d'espaces résidentiels, tertiaires et culturels.
 author: Doppio Architecture
 email: contact@doppioarchitecture.com
+architects:
+  - name: Anna Gascoin-Durlinger
+    role: Architecte associée
+    email: anna@doppioarchitecture.com
+    phone: "+33 (0)6 79 40 79 60"
+  - name: Jean Lepetit
+    role: Architecte associé
+    email: jean@doppioarchitecture.com
+    phone: "+33 (0)6 64 48 50 21"
 url: "https://doppioarchitecture.com"
 baseurl: ""
 
@@ -37,8 +46,10 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - DEPLOIEMENT.md
   - vendor
   - node_modules
+  - _brand
 
 # Navigation principale
 nav:

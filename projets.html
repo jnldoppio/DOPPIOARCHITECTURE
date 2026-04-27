@@ -3,28 +3,24 @@ layout: default
 title: Projets
 permalink: /projets/
 ---
+
 <section class="page-hero">
-  <div class="container">
-    <h1 class="page-title">Projets</h1>
-    <p class="page-subtitle">Une sélection de réalisations et d'études en cours.</p>
-  </div>
+  <span class="eyebrow">Réalisations & études</span>
+  <h1 class="page-title">Projets</h1>
+  <p class="page-subtitle">Une sélection de réalisations récentes, à toutes les échelles, du logement à l'aménagement tertiaire.</p>
 </section>
 
-<section>
-  <div class="container">
-    <div class="projects-grid">
-      {% assign all_projects = site.projects | sort: 'year' | reverse %}
-      {% for project in all_projects %}
-        <article class="project-card">
-          <a href="{{ project.url | relative_url }}">
-            <div class="project-thumb"{% if project.cover %} style="background-image: url('{{ project.cover | relative_url }}');"{% endif %}></div>
-            <div class="project-info">
-              <h3>{{ project.title }}</h3>
-              <p>{{ project.location }}{% if project.year %} — {{ project.year }}{% endif %}</p>
-            </div>
-          </a>
-        </article>
-      {% endfor %}
-    </div>
+<section style="padding: 0 var(--pad-x) 6rem;">
+  <div class="projects-grid" style="margin-top: 0;">
+    {% assign all_projects = site.projects | sort: 'year' | reverse %}
+    {% for project in all_projects %}
+      <a class="project-card" href="{{ project.url | relative_url }}">
+        <div class="project-thumb"{% if project.cover and project.cover != "" %} style="background-image: url('{{ project.cover | relative_url }}');"{% endif %}></div>
+        <div class="project-info">
+          <h3>{{ project.title }}</h3>
+          <p class="meta">{{ project.location }}{% if project.year %} — {{ project.year }}{% endif %}</p>
+        </div>
+      </a>
+    {% endfor %}
   </div>
 </section>

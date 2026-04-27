@@ -3,37 +3,48 @@ layout: default
 title: Contact
 permalink: /contact/
 ---
+
 <section class="page-hero">
-  <div class="container">
-    <h1 class="page-title">Contact</h1>
-    <p class="page-subtitle">Une idée, un projet, une question — écrivez-nous.</p>
-  </div>
+  <span class="eyebrow">Nous écrire</span>
+  <h1 class="page-title">Contact</h1>
+  <p class="page-subtitle">Une idée, un projet, une question — nous répondons sous 48 heures ouvrées.</p>
 </section>
 
-<section>
-  <div class="container container-narrow">
-    <div class="contact-grid">
-      <div class="contact-info">
-        <p><strong>Email</strong><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
-        <p><strong>Adresse</strong>À compléter<br>Code postal · Ville</p>
-        <p><strong>Téléphone</strong>+33 X XX XX XX XX</p>
-        <p style="margin-top: 2rem; color: var(--color-muted); font-size: .95rem;">
-          Nous répondons sous 48 heures ouvrées.
-        </p>
-      </div>
-
-      <form class="contact-form" action="https://formspree.io/f/VOTRE_ID" method="POST">
-        <label for="name">Nom</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
-
-        <button type="submit">Envoyer</button>
-      </form>
+<div class="contact-grid">
+  <div class="contact-info">
+    <div class="contact-block">
+      <span class="contact-label">Anna Gascoin-Durlinger</span>
+      <p class="contact-value" style="margin: 0;">Architecte associée<br>
+        <a href="mailto:anna@doppioarchitecture.com">anna@doppioarchitecture.com</a><br>
+        +33 (0)6 79 40 79 60
+      </p>
+    </div>
+    <div class="contact-block">
+      <span class="contact-label">Jean Lepetit</span>
+      <p class="contact-value" style="margin: 0;">Architecte associé<br>
+        <a href="mailto:jean@doppioarchitecture.com">jean@doppioarchitecture.com</a><br>
+        +33 (0)6 64 48 50 21
+      </p>
+    </div>
+    <div class="contact-block">
+      <span class="contact-label">Adresse</span>
+      <p class="contact-value" style="margin: 0;">À compléter<br>Code postal · Ville</p>
     </div>
   </div>
-</section>
+
+  <form class="contact-form" action="https://formspree.io/f/VOTRE_ID" method="POST">
+    <label for="name">Nom</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="subject">Sujet</label>
+    <input type="text" id="subject" name="subject">
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">Envoyer</button>
+  </form>
+</div>

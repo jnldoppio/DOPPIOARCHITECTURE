@@ -2,25 +2,25 @@
 layout: default
 ---
 <article class="project-detail">
-  {% if page.cover %}
-    <div class="project-cover" style="background-image: url('{{ page.cover | relative_url }}');"></div>
-  {% endif %}
-  <div class="container container-narrow">
-    <header class="project-header">
-      <p class="project-meta">{{ page.location }}{% if page.year %} — {{ page.year }}{% endif %}</p>
-      <h1>{{ page.title }}</h1>
-      {% if page.summary %}<p class="project-summary">{{ page.summary }}</p>{% endif %}
-    </header>
-    <div class="project-body">
-      {{ content }}
-    </div>
-    {% if page.gallery %}
-      <div class="project-gallery">
-        {% for img in page.gallery %}
-          <figure><img src="{{ img | relative_url }}" alt="{{ page.title }}"></figure>
-        {% endfor %}
-      </div>
-    {% endif %}
-    <p class="back-link"><a href="{{ '/projets/' | relative_url }}">← Retour aux projets</a></p>
+  <div class="project-cover"{% if page.cover and page.cover != "" %} style="background-image: url('{{ page.cover | relative_url }}');"{% endif %}></div>
+
+  <header class="project-header">
+    <span class="project-meta-top">{{ page.location }}{% if page.year %} · {{ page.year }}{% endif %}</span>
+    <h1>{{ page.title }}</h1>
+    {% if page.summary %}<p class="project-summary">{{ page.summary }}</p>{% endif %}
+  </header>
+
+  <div class="project-body">
+    {{ content }}
   </div>
+
+  {% if page.gallery and page.gallery.size > 0 %}
+    <div class="project-gallery">
+      {% for img in page.gallery %}
+        <figure><img src="{{ img | relative_url }}" alt="{{ page.title }}"></figure>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <p class="back-link"><a href="{{ '/projets/' | relative_url }}">← Retour aux projets</a></p>
 </article>

@@ -2,25 +2,33 @@
 layout: default
 title: Accueil
 ---
+
 <section class="hero">
-  <div class="container">
-    <div class="hero-inner fade-in">
-      <p class="hero-eyebrow">Studio d'architecture</p>
-      <h1>Concevoir des espaces qui durent.</h1>
-      <p class="hero-lead">
-        Doppio Architecture accompagne particuliers et professionnels dans la
-        conception, la rénovation et l'aménagement de leurs lieux de vie et de travail.
-      </p>
-      <a class="hero-cta" href="{{ '/projets/' | relative_url }}">Voir nos projets</a>
+  <div class="hero-image" role="img" aria-label="Visuel d'accueil — à remplacer par une image de projet"></div>
+
+  <div class="hero-content fade-in">
+    <h1 class="hero-title">Concevoir<br>des espaces<br>qui durent.</h1>
+    <div class="hero-aside">
+      {% assign featured = site.projects | sort: 'year' | reverse | first %}
+      {% if featured %}
+        <span class="label">Projet phare</span>
+        <a class="value" href="{{ featured.url | relative_url }}">{{ featured.title }}, {{ featured.location }}</a>
+      {% endif %}
     </div>
   </div>
 </section>
 
-<section style="background: #fff; border-top: 1px solid var(--color-line);">
-  <div class="container">
-    <div class="section-intro">
-      <p class="section-eyebrow">Notre approche</p>
-      <h2>Sobre, sensible, sur mesure</h2>
+<section class="section">
+  <div class="intro-grid">
+    <div>
+      <span class="eyebrow">Le studio</span>
+      <h2>Une architecture sobre, sensible, sur mesure.</h2>
+    </div>
+    <div>
+      <p>
+        Doppio Architecture accompagne particuliers et professionnels dans la
+        conception, la rénovation et l'aménagement de leurs lieux de vie et de travail.
+      </p>
       <p>
         Chaque projet est une réponse contextuelle — au lieu, à l'usage, aux personnes.
         Nous croyons aux espaces clairs, aux matériaux honnêtes et au temps long.
@@ -29,28 +37,24 @@ title: Accueil
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="section-intro">
-      <p class="section-eyebrow">Sélection</p>
-      <h2>Projets récents</h2>
-    </div>
-    <div class="projects-grid">
-      {% assign featured = site.projects | sort: 'year' | reverse | slice: 0, 3 %}
-      {% for project in featured %}
-        <article class="project-card">
-          <a href="{{ project.url | relative_url }}">
-            <div class="project-thumb"{% if project.cover %} style="background-image: url('{{ project.cover | relative_url }}');"{% endif %}></div>
-            <div class="project-info">
-              <h3>{{ project.title }}</h3>
-              <p>{{ project.location }}{% if project.year %} — {{ project.year }}{% endif %}</p>
-            </div>
-          </a>
-        </article>
-      {% endfor %}
-    </div>
-    <p style="text-align: center; margin-top: 3rem;">
-      <a href="{{ '/projets/' | relative_url }}" style="font-size: .8rem; letter-spacing: 0.18em; text-transform: uppercase;">Tous les projets →</a>
-    </p>
+<section class="section">
+  <span class="eyebrow">Sélection</span>
+  <h2 style="margin-bottom: 0.2em;">Projets récents</h2>
+
+  <div class="projects-grid">
+    {% assign featured = site.projects | sort: 'year' | reverse | slice: 0, 3 %}
+    {% for project in featured %}
+      <a class="project-card" href="{{ project.url | relative_url }}">
+        <div class="project-thumb"{% if project.cover and project.cover != "" %} style="background-image: url('{{ project.cover | relative_url }}');"{% endif %}></div>
+        <div class="project-info">
+          <h3>{{ project.title }}</h3>
+          <p class="meta">{{ project.location }}{% if project.year %} — {{ project.year }}{% endif %}</p>
+        </div>
+      </a>
+    {% endfor %}
   </div>
+
+  <a class="see-all" href="{{ '/projets/' | relative_url }}">
+    Voir tous les projets <span aria-hidden="true">→</span>
+  </a>
 </section>
