@@ -81,7 +81,7 @@ p  { margin: 0 0 1.1em; }
 .topbar-logo {
   display: block;
   color: var(--blue);
-  width: 4.2rem;
+  width: 6.5rem;
   transition: opacity .2s;
 }
 .topbar-logo:hover { opacity: .65; }
@@ -498,7 +498,7 @@ p  { margin: 0 0 1.1em; }
   :root { --sidenav-w: 0px; }
 
   .topbar { grid-template-columns: auto 1fr auto; padding: 1.1rem 1.25rem; }
-  .topbar-logo { width: 3.2rem; }
+  .topbar-logo { width: 4.5rem; }
   .topbar-meta { display: none; }
   .nav-toggle { display: inline-flex; }
 
