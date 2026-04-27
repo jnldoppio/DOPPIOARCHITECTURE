@@ -79,8 +79,8 @@ p  { margin: 0 0 1.1em; }
 }
 .topbar > * { pointer-events: auto; }
 
-/* Nav horizontale dans le topbar (visible uniquement sur la home en desktop) */
-.topbar-nav { display: none; justify-self: end; }
+/* Nav horizontale dans le topbar — visible sur toutes les pages en desktop */
+.topbar-nav { display: block; justify-self: end; }
 .topbar-nav ul {
   list-style: none;
   margin: 0; padding: 0;
@@ -98,8 +98,6 @@ p  { margin: 0 0 1.1em; }
 }
 .topbar-nav a:hover,
 .topbar-nav a.active { border-bottom-color: var(--blue); }
-.page-home .topbar-nav { display: block; }
-.page-home .sidenav { display: none; }
 
 .topbar-logo {
   display: block;
@@ -130,12 +128,12 @@ p  { margin: 0 0 1.1em; }
   border-radius: 50%;
 }
 
-/* === Side navigation (vertical, gauche) === */
+/* === Side navigation — utilisée uniquement comme drawer mobile === */
 .sidenav {
+  display: none; /* masquée en desktop, le topbar-nav prend le relais */
   position: fixed;
   left: 0; top: 0; bottom: 0;
   width: var(--sidenav-w);
-  display: flex;
   align-items: center;
   padding-left: calc(var(--pad-x) + 1rem);
   z-index: 40;
@@ -192,15 +190,7 @@ p  { margin: 0 0 1.1em; }
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
 
 /* === Main === */
-.site-main { padding-left: var(--sidenav-w); }
-
-/* Sur la page d'accueil, l'image hero prend toute la largeur ;
-   la nav reste fixée par-dessus mais le visuel n'est plus rogné par la marge gauche. */
-.page-home .site-main { padding-left: 0; }
-.page-home .sidenav a {
-  /* Petit shadow pour rester lisible si l'image est claire à l'endroit du texte */
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
-}
+.site-main { padding-left: 0; }
 
 /* === Hero accueil === */
 .hero {
@@ -496,7 +486,6 @@ p  { margin: 0 0 1.1em; }
   justify-content: space-between;
   align-items: center;
   padding: 2rem var(--pad-x);
-  padding-left: calc(var(--sidenav-w) + var(--pad-x));
   border-top: 1px solid var(--line);
   font-size: .68rem;
   letter-spacing: var(--tracked);
@@ -516,8 +505,8 @@ p  { margin: 0 0 1.1em; }
 
   .topbar { grid-template-columns: auto 1fr auto; padding: 1.1rem 1.25rem; gap: 1rem; }
   .topbar-logo { width: 4.5rem; }
-  .topbar-nav, .page-home .topbar-nav { display: none; } /* mobile = burger uniquement */
-  .page-home .sidenav { display: flex; } /* on rétablit pour le drawer mobile sur la home */
+  .topbar-nav { display: none; } /* mobile = burger uniquement */
+  .sidenav { display: flex; } /* drawer mobile activé */
   .topbar-meta { display: none; }
   .nav-toggle { display: inline-flex; }
 
