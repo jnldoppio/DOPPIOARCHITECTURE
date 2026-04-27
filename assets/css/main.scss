@@ -114,7 +114,7 @@ p  { margin: 0 0 1.1em; }
   width: var(--sidenav-w);
   display: flex;
   align-items: center;
-  padding-left: var(--pad-x);
+  padding-left: calc(var(--pad-x) + 1rem);
   z-index: 40;
   pointer-events: none;
 }
@@ -170,6 +170,14 @@ p  { margin: 0 0 1.1em; }
 
 /* === Main === */
 .site-main { padding-left: var(--sidenav-w); }
+
+/* Sur la page d'accueil, l'image hero prend toute la largeur ;
+   la nav reste fixée par-dessus mais le visuel n'est plus rogné par la marge gauche. */
+.page-home .site-main { padding-left: 0; }
+.page-home .sidenav a {
+  /* Petit shadow pour rester lisible si l'image est claire à l'endroit du texte */
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
 
 /* === Hero accueil === */
 .hero {
