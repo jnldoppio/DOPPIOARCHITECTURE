@@ -557,10 +557,12 @@ p  { margin: 0 0 1.1em; }
   padding: 3rem var(--pad-x);
 }
 .maintenance-inner {
+  width: 100%;
   max-width: 540px;
   text-align: center;
 }
 .maintenance-logo {
+  display: block;
   width: 18rem;
   max-width: 70vw;
   margin: 0 auto 3rem;
