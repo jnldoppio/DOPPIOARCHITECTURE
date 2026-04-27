@@ -1,0 +1,57 @@
+title: Doppio Architecture
+tagline: Studio d'architecture
+description: >-
+  Doppio Architecture — studio d'architecture. Conception, rénovation
+  et aménagement d'espaces résidentiels et tertiaires.
+author: Doppio Architecture
+email: contact@doppioarchitecture.com
+url: "https://doppioarchitecture.com"
+baseurl: ""
+
+# Construction
+markdown: kramdown
+permalink: /:title/
+timezone: Europe/Paris
+
+# Plugins (compatibles GitHub Pages)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projets/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
+# Exclusions
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - node_modules
+
+# Navigation principale
+nav:
+  - title: Accueil
+    url: /
+  - title: À propos
+    url: /a-propos/
+  - title: Projets
+    url: /projets/
+  - title: Contact
+    url: /contact/
+
+# Réseaux / contact (à compléter)
+social:
+  instagram: ""
+  linkedin: ""

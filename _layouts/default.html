@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  {% seo %}
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="{{ '/' | relative_url }}">
+        <span class="brand-name">Doppio</span>
+        <span class="brand-sub">Architecture</span>
+      </a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul id="nav-menu" class="nav-menu">
+          {% for item in site.nav %}
+            <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} class="active"{% endif %}>{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="footer-brand">Doppio Architecture</p>
+        <p class="footer-tag">{{ site.tagline }}</p>
+      </div>
+      <div class="footer-contact">
+        <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+        {% if site.social.instagram != "" %}<p><a href="https://instagram.com/{{ site.social.instagram }}" target="_blank" rel="noopener">Instagram</a></p>{% endif %}
+        {% if site.social.linkedin != "" %}<p><a href="https://linkedin.com/{{ site.social.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></p>{% endif %}
+      </div>
+      <div class="footer-meta">
+        <p>&copy; {{ 'now' | date: "%Y" }} Doppio Architecture</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Menu mobile
+    document.querySelector('.nav-toggle')?.addEventListener('click', function() {
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !expanded);
+      document.querySelector('.nav-menu').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
