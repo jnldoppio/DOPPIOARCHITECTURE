@@ -1,6 +1,6 @@
 # Mettre à true pour afficher la page "en construction" sur toutes les URLs.
 # Mettre à false pour publier le site complet.
-maintenance: true
+maintenance: false
 
 title: Doppio Architecture
 tagline: Studio d'architecture
